@@ -20,7 +20,7 @@ See [node-mysql](https://github.com/felixge/node-mysql) documentation.
 Simple select:
 
 ```js
-var mysql      = require('./node-mysql2');
+var mysql = require('./node-mysql2');
 var con = mysql.createConnection({
   host     : 'x.x.x.x',
   user     : 'xxx',
@@ -37,17 +37,6 @@ con.query('SELECT * FROM `testtable`', function(err, rows, fields) {
 	  console.log(rows);
 });
 con.end();
-```
-
-Prepared statement and parameters:
-
-```js
-var mysql      = require('mysql2');
-var connection = mysql.createConnection({ user: 'test', database: 'test'});
-
-connection.execute('SELECT 1+? as test1', [10], function(err, rows) {
-  //
-});
 ```
 
 ## License
