@@ -20,12 +20,23 @@ See [node-mysql](https://github.com/felixge/node-mysql) documentation.
 Simple select:
 
 ```js
-var mysql      = require('mysql2');
-var connection = mysql.createConnection({ user: 'test', database: 'test'});
-
-connection.query('SELECT 1+1 as test1', function(err, rows) {
-  //
+var mysql      = require('./node-mysql2');
+var con = mysql.createConnection({
+  host     : 'x.x.x.x',
+  user     : 'xxx',
+  password : 'xxx',
+  database : 'xxx'
 });
+con.on('error',function(e) {
+	console.log('ERROR: '+e);
+});
+
+con.connect();
+con.query('SELECT * FROM `testtable`', function(err, rows, fields) {
+	  if (err) return console.log(err);
+	  console.log(rows);
+});
+con.end();
 ```
 
 Prepared statement and parameters:
